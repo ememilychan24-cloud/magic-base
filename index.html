@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魔法營地</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background: #f4ece1; font-family: sans-serif; text-align: center; padding: 50px; }
+        .link { display: block; background: white; padding: 15px; margin: 10px; border-radius: 10px; text-decoration: none; color: #2d5a27; font-weight: bold; border: 1px solid #ddd; }
+        .link:hover { box-shadow: 0 0 10px #ffd700; }
+        .star { position: fixed; color: #ffd700; pointer-events: none; animation: fly 0.6s forwards; }
+        @keyframes fly { to { transform: translate(var(--dx), var(--dy)); opacity: 0; } }
+    </style>
+</head>
+<body>
+    <i class="fa-solid fa-tent" style="font-size: 3rem; color: #2d5a27;"></i>
+    <h1>魔法療癒營地</h1>
+    <a href="https://www.instagram.com/" class="link" onclick="m(event)">Instagram</a>
+    <a href="#" class="link" onclick="m(event)">領取魔法 Buff</a>
+    <script>
+        function m(e){
+            for(let i=0;i<6;i++){
+                const s=document.createElement('i'); s.className='fa-solid fa-star star';
+                s.style.left=e.clientX+'px'; s.style.top=e.clientY+'px';
+                s.style.setProperty('--dx',(Math.random()-0.5)*100+'px');
+                s.style.setProperty('--dy',(Math.random()-0.5)*100+'px');
+                document.body.appendChild(s); setTimeout(()=>s.remove(),600);
+            }
+        }
+    </script>
+</body>
+</html>
